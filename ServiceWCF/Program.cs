@@ -10,16 +10,12 @@ namespace ServiceWCF
 {
 	class Program
 	{
-		private const string URI = "http://localhost:8000/ServiceWCF";
-
 		static void Main(string[] args)
 		{
 			Console.Title = "SERVER";
 
-			using (var sh = new ServiceHost(typeof(Service), new Uri(URI)))
+			using (var sh = new ServiceHost(typeof(Service)))
 			{
-				sh.AddServiceEndpoint(typeof(IContractService), new BasicHttpBinding(), string.Empty);
-
 				sh.Open();
 
 				Console.WriteLine("Press any key...");
